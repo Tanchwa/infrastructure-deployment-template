@@ -1,0 +1,8 @@
+#TODO CHECK REQUIRED PERMISSIONS AGAINST CURRENTLY ASSIGNED PERMISSIONS TO THE SERVICE ACCOUNT
+#TODO OUTPUT THE REQUIRED PERMISSIONS IN A FILE OR PERMISSIONS OBJECT USING https://github.com/JamesWoolfenden/pike
+#TODO REMOVE PERMISSIONS ON A CRON JOB EVERY 30 DAYS IF NOT USED
+#
+# RULES workflow should follow a plan, approve, apply, revoke cycle
+# eventually, this can be sent to a security team for review
+# run this on workflow call, and on cron for permissions revocation
+# THIS WILL ACTUALLY RUN A DIFFERENT PIPELINE SO IT CAN USE A DIFFERENT SERVICE CONTEXT
