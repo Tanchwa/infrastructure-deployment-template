@@ -1,0 +1,21 @@
+name: "Terraform Plan"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - closed
+      - synchronize
+
+jobs:
+  terraform:
+    if: github.repository != 'Tanchwa/terraform-deployment-template'
+    name: 'Terraform Plan'
+    uses: ./.github/workflows/modules/terraform/_terraform_plan.yaml
+    secrets: inherit
+    with:
+      terraform_version: "1.13"
+      working_directory: "CHANGE_ME"
+
+
