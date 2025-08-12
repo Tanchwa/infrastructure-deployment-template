@@ -1,3 +1,0 @@
-#TODO Create backend should create a blob storage for the terraform state, and the service principal needed for the new terraform repo
-#this should also run any time this tempalte repo is consumed
-#use _determine-provider.yaml to determine the cloud provider
