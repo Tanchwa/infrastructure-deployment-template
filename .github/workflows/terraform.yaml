@@ -10,7 +10,19 @@ on:
       - closed
       - synchronize
 
+
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Debug GitHub Context'
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Base Ref: ${{ github.base_ref }}"
+          echo "Head Ref: ${{ github.head_ref }}"
+          echo "Workflow Run ID: ${{ github.run_id }}"
+
   plan:
     if: github.repository != 'Tanchwa/infrastructure-deployment-template'
     name: 'Terraform Plan'
@@ -21,7 +33,7 @@ jobs:
       working_directory: "CHANGE_ME"
 
   apply:
-    if: github.event.pull_request.merged && github.base_ref == 'main' && github.repository != 'Tanchwa/infrastructure-deployment-template'
+    if: (github.event.pull_request.merged && github.base_ref == 'main') && github.repository != 'Tanchwa/infrastructure-deployment-template'
     needs: plan
     name: 'Terraform Apply'
     uses: Tanchwa/terraform-deployment-workflows/.github/workflows/terraform_apply.yaml@v0.1.0
