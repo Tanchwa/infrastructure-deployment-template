@@ -18,7 +18,7 @@ jobs:
     uses: Tanchwa/workflows-terraform-deployment/.github/workflows/terraform_plan.yaml@v0.1.0
     secrets: inherit
     with:
-      terraform_version: "1.13"
+      terraform_version: "1.12"
       working_directory: "CHANGE_ME"
 
   apply:
@@ -28,6 +28,6 @@ jobs:
     uses: Tanchwa/workflows-terraform-deployment/.github/workflows/terraform_apply.yaml@v0.1.0
     secrets: inherit
     with:
-      terraform_version: "1.13"
+      terraform_version: "1.12"
       working_directory: "CHANGE_ME"
       terraform_plan_file: ${{ needs.plan.outputs.plan_file }}
