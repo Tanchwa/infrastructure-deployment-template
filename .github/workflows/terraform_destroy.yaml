@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy:
+    if: github.repository != 'Tanchwa/infrastructure-deployment-template'
+    name: 'Terraform Destroy'
+    uses: Tanchwa/workflows-terraform-deployment/.github/workflows/terraform_destroy.yaml@main
+    secrets: 
+      CHANGE_ME: CHANGE_ME
+      CHANGE_ME2: CHANGE_ME
+      CHANGE_ME_ALSO: CHANGE_ME
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    with:
+      terraform_version: "1.12"
+      working_directory: "."
